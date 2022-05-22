@@ -15,13 +15,23 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { UserhomeComponent } from './userhome/userhome.component';
+import { UserComponent } from './user/user.component';
+import { LendComponent } from './lend/lend.component';
+import { RentComponent } from './rent/rent.component';
+import { CurrentrentComponent } from './currentrent/currentrent.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    HomeComponent
+    HomeComponent,
+    UserhomeComponent,
+    UserComponent,
+    LendComponent,
+    RentComponent,
+    CurrentrentComponent
   ],
   imports: [
     BrowserModule,
