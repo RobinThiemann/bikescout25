@@ -1,10 +1,12 @@
 <form>
-    <div class="input">
-        <label>Nutzername oder E-Mail-Adresse</label>
+  <h1>Login</h1>
+  <div class="general-input"  >
+  <div class="input">
+        <p>Nutzername oder E-Mail-Adresse</p>
         <input type="text" name="email" [(ngModel)]="email">
     </div>
     <div class="input">
-        <label>Passwort</label>
+        <p>Passwort</p>
         <input type="password" name="password" [(ngModel)]="password">
     </div>
     <div class="input">
@@ -13,4 +15,5 @@
     <div class="text" routerLink="signup">
         <a href="/signup">Sie haben noch keinen Account?</a>
     </div>
+  </div>
 </form>

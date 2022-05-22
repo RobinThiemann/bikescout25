@@ -1,0 +1,18 @@
+.general-signup {
+  text-align: center;
+  display: grid;
+  /*grid-template-columns: 1fr 1fr;*/
+}
+.input {
+  padding: 1rem;
+}
+h1 {
+  text-align: center;
+}
+.b1 {
+  background-color: '#fffff';
+  padding: 7px;
+  margin: 15px;
+  border-radius: 5px;
+  border: none;
+}
