@@ -1,0 +1,20 @@
+<form>
+    <div class="input">
+        <label>Name</label>
+        <input type="text" name="email" [(ngModel)]="name">
+    </div>
+    <div class="input">
+        <label>E-Mail-Adresse</label>
+        <input type="text" name="email" [(ngModel)]="email">
+    </div>
+    <div class="input">
+        <label>Passwort</label>
+        <input type="password" name="password" [(ngModel)]="password">
+    </div>
+    <div class="input">
+        <input type="submit" value="Login" (click)="signup()">
+    </div>
+    <div class="text" routerLink="signup">
+        <a href="/login">Sie haben bereits einen Account?</a>
+    </div>
+</form>
