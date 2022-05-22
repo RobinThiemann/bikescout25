@@ -15,11 +15,11 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
-import { UserhomeComponent } from './userhome/userhome.component';
-import { UserComponent } from './user/user.component';
-import { LendComponent } from './lend/lend.component';
-import { RentComponent } from './rent/rent.component';
-import { CurrentrentComponent } from './currentrent/currentrent.component';
+import { UserhomeComponent } from './components/userhome/userhome.component';
+import { UserComponent } from './components/user/user.component';
+import { LendComponent } from './components/lend/lend.component';
+import { RentComponent } from './components/rent/rent.component';
+import { CurrentrentComponent } from './components/currentrent/currentrent.component';
 
 @NgModule({
   declarations: [
