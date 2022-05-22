@@ -9,11 +9,13 @@ import { environment } from 'src/environments/environment';
 import { LoginComponent } from './login/login.component';
 
 import { FormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
