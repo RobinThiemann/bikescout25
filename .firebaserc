@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "bikescout25": {
+      "hosting": {
+        "bikescout25": [
+          "bikescout25"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "bikescout25"
+  }
+}

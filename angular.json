@@ -98,6 +98,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "bikescout25:build:production",
+            "firebaseProject": "bikescout25",
+            "firebaseHostingSite": "bikescout25"
+          }
         }
       }
     }
