@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/shared/auth.service';
 export class SignupComponent implements OnInit {
 
   name: string;
+  portrait: string;
   email: string;
   password: string;
 
@@ -22,7 +23,7 @@ export class SignupComponent implements OnInit {
       alert('Please fill all fields');
       return;
     }
-    this.auth.register(this.email, this.password);
+    this.auth.register(this.name, this.portrait, this.email, this.password);
     this.name = '';
     this.email = '';
     this.password = '';
