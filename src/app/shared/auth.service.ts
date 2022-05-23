@@ -1,25 +1,22 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  userdata: {
-    name: string,
-    portrait: string,
-    email: string,
-    password: string
-  }
+  userdata: JSON;
 
-  constructor(private fireauth: AngularFireAuth, private router: Router) { }
+  constructor(private fireauth: AngularFireAuth, private router: Router, private db: AngularFireDatabase) { }
 
   login(email: string, password: string) {
     return this.fireauth.signInWithEmailAndPassword(email, password).then(() => {
       localStorage.setItem('token', 'true');
-      localStorage.setItem('email', email);
+      const email_id = email.replace(/\./g, 'EMAIL_IDENTIFIER');
+      localStorage.setItem('email', email_id);
       this.router.navigate(['/home']);
     }, err => {
       alert('Invalid email or password');
@@ -28,10 +25,17 @@ export class AuthService {
   }
 
   register(name: string, portrait: string, email: string, password: string) {
-    this.userdata.name = name;
-    this.userdata.portrait = portrait;
-    this.userdata.email = email;
-    this.userdata.password = password;
+
+    this.userdata = <JSON><unknown>{
+      name: name,
+      portrait: portrait,
+      email: email,
+      password: password
+    }
+
+    const email_id = email.replace(/\./g, 'EMAIL_IDENTIFIER');
+    console.log(email_id);
+    this.db.object(email_id).set(this.userdata);
     return this.fireauth.createUserWithEmailAndPassword(email, password).then(() => {
       this.router.navigate(['/']);
     }, err => {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/auth.service';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Component({
   selector: 'app-signup',
@@ -13,13 +14,13 @@ export class SignupComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, db: AngularFireDatabase) { }
 
   ngOnInit(): void {
   }
 
   signup() {
-    if (this.name == '' || this.email == '' || this.password == '') {
+    if (this.name == '' || this.portrait == '' || this.email == '' || this.password == '') {
       alert('Please fill all fields');
       return;
     }
