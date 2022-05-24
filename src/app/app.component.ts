@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AuthService } from './shared/auth.service';
+import { Router } from '@angular/router';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,41 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bikescout25';
+
+  constructor(private auth: AuthService, private router: Router, private db: AngularFireDatabase) { }
+
+  ngOnInit(): void {
+    this.auth.autologin();
+  }
+
+  showNavbar() {
+    return localStorage.getItem('token') == 'true';
+  }
+
+  logout() {
+    this.auth.logout();
+  }
+
+  navigateHome() {
+    if (localStorage.getItem('token') == 'true') {
+      this.router.navigate(['/home']);
+    }
+  }
+
+  changeName() {
+    if (localStorage.getItem('email') !== null) {
+      const email = localStorage.getItem('email');
+      this.db.database.ref(email || '').get().then(function (snapshot) {
+        const data = snapshot.val();
+        const nameString = 'Willkommen ' + data.name;
+        console.log(nameString);
+        const label = document.getElementById('changeName');
+        if (label !== null) {
+          label.innerHTML = nameString;
+        }
+      });
+    }
+
+  }
+
 }

@@ -20,6 +20,7 @@ import { UserComponent } from './components/user/user.component';
 import { LendComponent } from './components/lend/lend.component';
 import { RentComponent } from './components/rent/rent.component';
 import { CurrentrentComponent } from './components/currentrent/currentrent.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CurrentrentComponent } from './components/currentrent/currentrent.compo
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
