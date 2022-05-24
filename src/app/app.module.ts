@@ -20,7 +20,7 @@ import { UserComponent } from './components/user/user.component';
 import { LendComponent } from './components/lend/lend.component';
 import { RentComponent } from './components/rent/rent.component';
 import { CurrentrentComponent } from './components/currentrent/currentrent.component';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -44,7 +44,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,3 +8,26 @@ p {
     text-align: center;
     font-size: 1rem;
 }
+
+.wrapper {
+    text-align: center;
+    background: #dddddd;
+    padding: 20px;
+}
+
+.actions {
+    text-align: center;
+    justify-content: center;
+    background-color: #eb8613;
+    padding: 7px;
+    margin-right: 50px;
+    margin-left: 50px;
+    border-radius: 5px;
+    border: none;
+    font-size: medium;
+}
+
+.actions:hover {
+    background-color: #d67e0e;
+    border: 1px solid #000000;
+}
