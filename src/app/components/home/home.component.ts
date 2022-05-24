@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  center: google.maps.LatLngLiteral
+
   constructor(private router: Router, private db: AngularFireDatabase) { }
 
   ngOnInit(): void {
@@ -16,6 +18,12 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/']);
     }
     this.changeName();
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.center = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      }
+    })
   }
 
   changeName() {
