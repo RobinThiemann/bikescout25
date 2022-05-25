@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  dblclick(event: google.maps.MouseEvent) {
+  click(event: google.maps.MapMouseEvent) {
     console.log(event)
   }
 
