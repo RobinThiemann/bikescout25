@@ -59,6 +59,7 @@ export class AuthService {
           warning.style.display = 'block';
         }
       }
+      return;
     }
     if (typeof portrait === 'undefined' || portrait === '') {
       const errorText = document.getElementById('portrait');
@@ -71,6 +72,7 @@ export class AuthService {
           warning.style.display = 'block';
         }
       }
+      return;
     }
     if (typeof email === 'undefined' || email === '') {
       const errorText = document.getElementById('email');
@@ -83,6 +85,7 @@ export class AuthService {
           warning.style.display = 'block';
         }
       }
+      return;
     }
     if (typeof password === 'undefined' || password === '') {
       const errorText = document.getElementById('password');
@@ -95,11 +98,12 @@ export class AuthService {
           warning.style.display = 'block';
         }
       }
+      return;
     }
 
     return this.fireauth.createUserWithEmailAndPassword(email, password).then(() => {
-      this.router.navigate(['/']);
       this.db.object(email_id).set(this.userdata);
+      this.router.navigate(['/']);
     }, err => {
       if (err.code == 'auth/email-already-in-use') {
         console.log('Email already in use');

@@ -10,10 +10,12 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 })
 export class AppComponent {
   title = 'bikescout25';
+  clickcount = 0;
 
   constructor(private auth: AuthService, private router: Router, private db: AngularFireDatabase) { }
 
   ngOnInit(): void {
+    this.clickcount = 0;
     this.auth.autologin();
   }
 
@@ -28,6 +30,10 @@ export class AppComponent {
   navigateHome() {
     if (localStorage.getItem('token') == 'true') {
       this.router.navigate(['/home']);
+    }
+    this.clickcount++;
+    if (this.clickcount == 25) {
+      window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
     }
   }
 
