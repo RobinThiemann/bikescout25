@@ -40,5 +40,10 @@ export class HomeComponent implements OnInit {
       });
     }
   }
+
+  dblclick(event: google.maps.MouseEvent) {
+    console.log(event)
+  }
+
 }
 
