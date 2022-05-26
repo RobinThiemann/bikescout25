@@ -33,7 +33,7 @@ export class AppComponent {
     }
     this.clickcount++;
     if (this.clickcount == 25) {
-      window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+      window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
     }
   }
 

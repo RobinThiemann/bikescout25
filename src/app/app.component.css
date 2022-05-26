@@ -31,6 +31,7 @@ p {
     right: 0;
     height: 60px;
     display: flex;
+    justify-content: center;
     align-items: center;
     background-color: #eb8613;
     color: white;
@@ -38,26 +39,47 @@ p {
     border-bottom: black solid 3px;
 }
 
+.navbar {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #eb8613;
+    color: white;
+    font-weight: 600;
+}
+
 .img {
     height: 40px;
-    margin: 0 16px;
+    margin: 10px;
 }
 
 .img:hover {
     background-color: #d67e0e;
 }
 
+.icon {
+    height: 30px;
+    margin: 10px;
+}
+
+.icon:hover {
+    background-color: #DEDEDE;
+}
+
+
+
 .auth {
-    background-color: '#fffff';
+    background-color: white;
     padding: 7px;
     margin: 15px;
     border-radius: 5px;
     border: none;
 }
 
-.auth:hover {
-    background-color: #DEDEDE
-}
 
 .auth:active {
     background-color: #999999;

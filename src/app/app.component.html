@@ -22,12 +22,13 @@
     </svg>
   </a>-->
   <!-- Hide div depending on value -->
-  <div *ngIf="!showNavbar()">
+  <div class="navbar" *ngIf="!showNavbar()">
     <button class="auth" routerLink="" tabindex="1">Login</button>
     <button class="auth" routerLink="signup" tabindex="1">Sign up</button>
   </div>
-  <div *ngIf="showNavbar()">
+  <div class="navbar" *ngIf="showNavbar()">
     <label id="changeName"></label>
+    <img class="icon" alt="Profile" src="/assets/profile-user-white.png" routerLink="user" />
     <button class="auth" (click)="logout()" tabindex="1">Logout</button>
   </div>
 
