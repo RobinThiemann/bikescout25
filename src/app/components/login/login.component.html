@@ -1,19 +1,20 @@
 <form>
-  <h1>Login</h1>
-  <div class="general-input"  >
-  <div class="input">
-        <p>Nutzername oder E-Mail-Adresse</p>
-        <input type="text" name="email" [(ngModel)]="email">
+    <h1>Login</h1>
+    <div class="general-input">
+        <div class="input">
+            <p id="email">Email-Adresse</p>
+            <input id="email_input" type="text" name="email" [(ngModel)]="email">
+        </div>
+        <div class="input">
+            <p id="password">Passwort</p>
+            <input id="password_input" type="password" name="password" [(ngModel)]="password">
+        </div>
+        <div id="errorText" class="errorText">Email oder Passwort inkorrekt</div>
+        <div class="input">
+            <input type="submit" value="Login" (click)="login()">
+        </div>
+        <div class="text" routerLink="signup">
+            <a href="/signup">Sie haben noch keinen Account?</a>
+        </div>
     </div>
-    <div class="input">
-        <p>Passwort</p>
-        <input type="password" name="password" [(ngModel)]="password">
-    </div>
-    <div class="input">
-        <input type="submit" value="Login" (click)="login()">
-    </div>
-    <div class="text" routerLink="signup">
-        <a href="/signup">Sie haben noch keinen Account?</a>
-    </div>
-  </div>
 </form>

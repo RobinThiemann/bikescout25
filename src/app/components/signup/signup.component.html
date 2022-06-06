@@ -2,21 +2,24 @@
     <h1>Signup</h1>
     <div class="general-signup">
         <div class="input">
-            <p>Name</p>
-            <input type="text" name="email" [(ngModel)]="name">
+            <p id="name">Name</p>
+            <input id="name_input" type="text" name="email" [(ngModel)]="name" (focusout)="changeName($event)">
         </div>
         <div class="input">
-            <p>Kurzbeschreibung</p>
-            <textarea class="portrait" type="text" name="portrait" [(ngModel)]="portrait"></textarea>
+            <p id="portrait">Kurzbeschreibung</p>
+            <textarea id="portrait_input" class="portrait" type="text" name="portrait" [(ngModel)]="portrait"
+                (focusout)="changePortrait($event)"></textarea>
         </div>
         <div class="input">
-            <p>E-Mail-Adresse</p>
-            <input type="text" name="email" [(ngModel)]="email">
+            <p id="email">E-Mail-Adresse</p>
+            <input id="email_input" type="text" name="email" [(ngModel)]="email" (focusout)="changeEmail($event)">
         </div>
         <div class="input">
-            <p>Passwort</p>
-            <input type="password" name="password" [(ngModel)]="password">
+            <p id="password">Passwort</p>
+            <input id="password_input" type="password" name="password" [(ngModel)]="password"
+                (focusout)="changePassword($event)">
         </div>
+        <div id="errorText" class="errorText">Bitte füllen Sie alle Felder aus</div>
         <div class="input">
             <input type="submit" value="Signup" (click)="signup()">
         </div>

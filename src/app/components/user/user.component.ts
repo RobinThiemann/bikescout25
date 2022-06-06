@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  key: string;
+  name: string;
+  url: string;
+  file: File;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

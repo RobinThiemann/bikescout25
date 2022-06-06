@@ -15,13 +15,17 @@ import { HomeComponent } from './components/home/home.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
-import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { UserhomeComponent } from './components/userhome/userhome.component';
 import { UserComponent } from './components/user/user.component';
 import { LendComponent } from './components/lend/lend.component';
 import { RentComponent } from './components/rent/rent.component';
 import { CurrentrentComponent } from './components/currentrent/currentrent.component';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { UploadFormComponent } from './components/upload-form/upload-form.component';
+import { UploadDetailsComponent } from './components/upload-details/upload-details.component';
+import { UploadListComponent } from './components/upload-list/upload-list.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     UserComponent,
     LendComponent,
     RentComponent,
-    CurrentrentComponent
+    CurrentrentComponent,
+    UploadFormComponent,
+    UploadDetailsComponent,
+    UploadListComponent
+
   ],
   imports: [
     BrowserModule,
@@ -45,8 +53,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore()),
     HttpClientModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

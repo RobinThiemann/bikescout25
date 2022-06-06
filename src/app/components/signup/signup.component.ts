@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/auth.service';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -14,21 +14,55 @@ export class SignupComponent implements OnInit {
   email: string;
   password: string;
 
-  constructor(private auth: AuthService, db: AngularFireDatabase) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   signup() {
-    if (this.name == '' || this.portrait == '' || this.email == '' || this.password == '') {
-      alert('Please fill all fields');
-      return;
-    }
     this.auth.register(this.name, this.portrait, this.email, this.password);
-    this.name = '';
-    this.email = '';
-    this.password = '';
+    if (this.router.url !== '/signup') {
+      this.name = '';
+      this.email = '';
+      this.password = '';
+      this.portrait = '';
+    }
 
   }
 
+  changeName(event: any) {
+    const name = document.getElementById('name');
+    const nameInput = document.getElementById('name_input');
+    if (name !== null && nameInput !== null) {
+      name.style.color = '#000000';
+      nameInput.style.border = '1px solid #000000';
+    }
+  }
+
+  changePortrait(event: any) {
+    const portrait = document.getElementById('portrait');
+    const portraitInput = document.getElementById('portrait_input');
+    if (portrait !== null && portraitInput !== null) {
+      portrait.style.color = '#000000';
+      portraitInput.style.border = '1px solid #000000';
+    }
+  }
+
+  changeEmail(even: any) {
+    const email = document.getElementById('email');
+    const emailInput = document.getElementById('email_input');
+    if (email !== null && emailInput !== null) {
+      email.style.color = '#000000';
+      emailInput.style.border = '1px solid #000000';
+    }
+  }
+
+  changePassword(event: any) {
+    const password = document.getElementById('password');
+    const passwordInput = document.getElementById('password_input');
+    if (password !== null && passwordInput !== null) {
+      password.style.color = '#000000';
+      passwordInput.style.border = '1px solid #000000';
+    }
+  }
 }

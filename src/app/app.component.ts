@@ -10,10 +10,12 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 })
 export class AppComponent {
   title = 'bikescout25';
+  clickcount = 0;
 
   constructor(private auth: AuthService, private router: Router, private db: AngularFireDatabase) { }
 
   ngOnInit(): void {
+    this.clickcount = 0;
     this.auth.autologin();
   }
 
@@ -29,20 +31,25 @@ export class AppComponent {
     if (localStorage.getItem('token') == 'true') {
       this.router.navigate(['/home']);
     }
+    this.clickcount++;
+    if (this.clickcount == 25) {
+      window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+    }
   }
 
   changeName() {
     if (localStorage.getItem('email') !== null) {
       const email = localStorage.getItem('email');
-      this.db.database.ref(email || '').get().then(function (snapshot) {
-        const data = snapshot.val();
-        const nameString = 'Willkommen ' + data.name;
-        console.log(nameString);
-        const label = document.getElementById('changeName');
-        if (label !== null) {
-          label.innerHTML = nameString;
-        }
-      });
+      if (email !== null) {
+        this.db.database.ref(email || '').get().then(function (snapshot) {
+          const data = snapshot.val();
+          const nameString = 'Willkommen ' + data.name;
+          const label = document.getElementById('changeName');
+          if (label !== null) {
+            label.innerHTML = nameString;
+          }
+        });
+      }
     }
 
   }

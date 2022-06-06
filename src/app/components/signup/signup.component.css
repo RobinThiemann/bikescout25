@@ -12,6 +12,13 @@
   padding: 1rem;
   height: 200px;
   text-align: left;
+  resize: none;
+}
+
+.errorText {
+  color: red;
+  font-size: 0.8rem;
+  display: none;
 }
 
 h1 {

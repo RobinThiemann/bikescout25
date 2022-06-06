@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { Router } from '@angular/router';
-import {Loader} from "@googlemaps/js-api-loader";
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,57 +9,14 @@ import {Loader} from "@googlemaps/js-api-loader";
 })
 export class HomeComponent implements OnInit {
 
-  center: google.maps.LatLngLiteral
-
-  constructor(private router: Router, private db: AngularFireDatabase) { }
+  constructor(private router: Router, private db: AngularFireDatabase, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
-    //loading the map
-
-    let loader = new Loader({
-      apiKey:'AIzaSyD3-2RCJ5_8u-WTe4I38O-AzrukA3YfIHo'
-    });
-
-    loader.load().then(() => {
-      console.log("loaded map")
-
-      //location of marker
-      const location = {
-        lat:33.8688,
-        lng:151.2093,
-      };
-
-      this.map = new google.maps.Map(document.getElementById("map"),
-        {
-          center: location,
-          zoom: 6
-        })
-
-      const marker = new google.maps.Marker({
-        position: location,
-        map: this.map,
-
-      });
-
-    })
-
     if (localStorage.getItem('token') !== 'true') {
       this.router.navigate(['/']);
     }
     this.changeName();
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.center = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      }
-    })
   }
-
-  title = "google-maps"
-
-  private map: google.maps.Map
-
 
   changeName() {
     if (localStorage.getItem('email') !== null) {
@@ -77,9 +33,12 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  click(event: google.maps.MapMouseEvent) {
-    console.log(event)
+  navigateRent() {
+    this.router.navigate(['/rent'], { relativeTo: this.route });
   }
 
+  navigateLend() {
+    this.router.navigate(['/lend'], { relativeTo: this.route });
+  }
 }
 
