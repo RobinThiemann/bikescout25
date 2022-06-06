@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Router } from '@angular/router';
+import {Loader} from "@googlemaps/js-api-loader";
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,36 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private db: AngularFireDatabase) { }
 
   ngOnInit(): void {
+
+    //loading the map
+
+    let loader = new Loader({
+      apiKey:'AIzaSyD3-2RCJ5_8u-WTe4I38O-AzrukA3YfIHo'
+    });
+
+    loader.load().then(() => {
+      console.log("loaded map")
+
+      //location of marker
+      const location = {
+        lat:33.8688,
+        lng:151.2093,
+      };
+
+      this.map = new google.maps.Map(document.getElementById("map"),
+        {
+          center: location,
+          zoom: 6
+        })
+
+      const marker = new google.maps.Marker({
+        position: location,
+        map: this.map,
+
+      });
+
+    })
+
     if (localStorage.getItem('token') !== 'true') {
       this.router.navigate(['/']);
     }
@@ -25,6 +56,11 @@ export class HomeComponent implements OnInit {
       }
     })
   }
+
+  title = "google-maps"
+
+  private map: google.maps.Map
+
 
   changeName() {
     if (localStorage.getItem('email') !== null) {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Loader } from '@googlemaps/js-api-loader';
 
 @Component({
   selector: 'app-lend',
@@ -10,6 +11,7 @@ export class LendComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
