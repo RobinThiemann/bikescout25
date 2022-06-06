@@ -24,7 +24,8 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/Logo.png"
             ],
             "styles": [
               "src/styles.css"
@@ -97,6 +98,16 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "bikescout25:build:production",
+            "firebaseProject": "bikescout25",
+            "firebaseHostingSite": "bikescout25"
           }
         }
       }

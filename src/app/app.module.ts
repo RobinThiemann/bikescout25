@@ -6,17 +6,45 @@ import { AppComponent } from './app.component';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './components/login/login.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './components/signup/signup.component';
+import { HomeComponent } from './components/home/home.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { UserhomeComponent } from './components/userhome/userhome.component';
+import { UserComponent } from './components/user/user.component';
+import { LendComponent } from './components/lend/lend.component';
+import { RentComponent } from './components/rent/rent.component';
+import { CurrentrentComponent } from './components/currentrent/currentrent.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent,
+    HomeComponent,
+    UserhomeComponent,
+    UserComponent,
+    LendComponent,
+    RentComponent,
+    CurrentrentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    FormsModule,
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore()),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

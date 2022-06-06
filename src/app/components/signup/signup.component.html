@@ -1,0 +1,27 @@
+<form>
+    <h1>Signup</h1>
+    <div class="general-signup">
+        <div class="input">
+            <p>Name</p>
+            <input type="text" name="email" [(ngModel)]="name">
+        </div>
+        <div class="input">
+            <p>Kurzbeschreibung</p>
+            <textarea class="portrait" type="text" name="portrait" [(ngModel)]="portrait"></textarea>
+        </div>
+        <div class="input">
+            <p>E-Mail-Adresse</p>
+            <input type="text" name="email" [(ngModel)]="email">
+        </div>
+        <div class="input">
+            <p>Passwort</p>
+            <input type="password" name="password" [(ngModel)]="password">
+        </div>
+        <div class="input">
+            <input type="submit" value="Signup" (click)="signup()">
+        </div>
+        <div class="text" routerLink="signup">
+            <a href="/login">Sie haben bereits einen Account?</a>
+        </div>
+    </div>
+</form>
