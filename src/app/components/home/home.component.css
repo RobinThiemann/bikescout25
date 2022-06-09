@@ -11,14 +11,22 @@ p {
 
 .wrapper {
     text-align: center;
-    background: #dddddd;
-    padding: 20px;
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+}
+
+.errorText {
+    color: red;
+    font-size: 1rem;
+    margin: 10px;
 }
 
 .actions {
     text-align: center;
     justify-content: center;
     background-color: #eb8613;
+    border: 1px solid #eb8613;
     padding: 7px;
     margin-right: 50px;
     margin-left: 50px;

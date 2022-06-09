@@ -1,3 +1,12 @@
+.signup {
+  margin: auto;
+  background-color: aliceblue;
+  width: 15%;
+  padding: 20px 50px 50px 50px;
+  border-radius: 30px;
+  box-shadow: 5px 5px 5px #000000;
+}
+
 .general-signup {
   text-align: center;
   display: grid;

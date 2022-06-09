@@ -17,7 +17,11 @@ export class AuthService {
       localStorage.setItem('token', 'true');
       const email_id = email.toLowerCase().replace(/\./g, 'EMAIL_IDENTIFIER');
       localStorage.setItem('email', email_id);
-      this.router.navigate(['/home']);
+      this.router.navigate(['/']);
+      const errortext = document.getElementById('errorText_home');
+      if (errortext !== null) {
+        errortext.innerHTML = '';
+      }
     }, err => {
       const email = document.getElementById('email');
       const email_input = document.getElementById('email_input');
@@ -105,6 +109,10 @@ export class AuthService {
     return this.fireauth.createUserWithEmailAndPassword(email, password).then(() => {
       this.db.object(email_id).set(this.userdata);
       this.router.navigate(['/']);
+      const errortext = document.getElementById('errorText_home');
+      if (errortext !== null) {
+        errortext.innerHTML = '';
+      }
     }, err => {
       if (err.code == 'auth/email-already-in-use') {
         console.log('Email already in use');
@@ -163,7 +171,7 @@ export class AuthService {
 
   autologin() {
     if (localStorage.getItem('token') == 'true') {
-      this.router.navigate(['home/']);
+      this.router.navigate(['/']);
     }
   }
 

@@ -34,11 +34,25 @@ export class HomeComponent implements OnInit {
   }
 
   navigateRent() {
-    this.router.navigate(['/rent'], { relativeTo: this.route });
+    if (localStorage.getItem('token') === 'true') {
+      this.router.navigate(['/rent'], { relativeTo: this.route });
+    } else {
+      const errortext = document.getElementById('errorText_home');
+      if (errortext !== null) {
+        errortext.innerHTML = 'Bitte logge dich ein, um diese Funktion zu nutzen.';
+      }
+    }
   }
 
   navigateLend() {
-    this.router.navigate(['/lend'], { relativeTo: this.route });
+    if (localStorage.getItem('token') === 'true') {
+      this.router.navigate(['/lend'], { relativeTo: this.route });
+    } else {
+      const errortext = document.getElementById('errorText_home');
+      if (errortext !== null) {
+        errortext.style.display = 'block';
+      }
+    }
   }
 }
 

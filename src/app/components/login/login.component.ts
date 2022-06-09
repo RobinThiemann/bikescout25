@@ -18,12 +18,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-
-    if (this.email == '' || this.password == '') {
-      alert('Please fill all fields');
-      return;
-    }
-
     this.auth.login(this.email, this.password);
     if (this.router.url !== '/login') {
       this.email = '';

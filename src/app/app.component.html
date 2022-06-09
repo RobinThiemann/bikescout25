@@ -1,5 +1,5 @@
 <div class="toolbar" role="banner">
-  <img class="img" height="50" alt="Bikescout25 Logo" src="/assets/Logo_full.png" (click)="navigateHome()" />
+  <img class="img" height="50" alt="Bikescout25 Logo" src="/assets/Logo_full.png" routerLink="" />
   <div class="spacer"></div>
 
   <!--<a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
@@ -23,7 +23,7 @@
   </a>-->
   <!-- Hide div depending on value -->
   <div class="navbar" *ngIf="!showNavbar()">
-    <button class="auth" routerLink="" tabindex="1">Login</button>
+    <button class="auth" routerLink="login" tabindex="1">Login</button>
     <button class="auth" routerLink="signup" tabindex="1">Sign up</button>
   </div>
   <div class="navbar" *ngIf="showNavbar()">
