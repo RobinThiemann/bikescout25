@@ -22,9 +22,6 @@ import { CurrentrentComponent } from './components/currentrent/currentrent.compo
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { UploadFormComponent } from './components/upload-form/upload-form.component';
-import { UploadDetailsComponent } from './components/upload-details/upload-details.component';
-import { UploadListComponent } from './components/upload-list/upload-list.component';
 
 @NgModule({
   declarations: [
@@ -36,10 +33,7 @@ import { UploadListComponent } from './components/upload-list/upload-list.compon
     UserComponent,
     LendComponent,
     RentComponent,
-    CurrentrentComponent,
-    UploadFormComponent,
-    UploadDetailsComponent,
-    UploadListComponent
+    CurrentrentComponent
 
   ],
   imports: [

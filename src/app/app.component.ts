@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from './shared/auth.service';
+import { AuthService } from 'src/app/shared/auth.service';
 import { Router } from '@angular/router';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 

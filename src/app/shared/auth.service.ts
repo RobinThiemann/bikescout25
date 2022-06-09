@@ -36,12 +36,13 @@ export class AuthService {
     })
   }
 
-  register(name: string, portrait: string, email: string, password: string) {
+  register(name: string, portrait: string, email: string, password: string, uploadUrl: string) {
 
     this.userdata = <JSON><unknown>{
       name: name,
       portrait: portrait,
-      email: email
+      email: email,
+      uploadUrl: uploadUrl
     }
     let email_id = email;
     if (typeof email !== 'undefined') {

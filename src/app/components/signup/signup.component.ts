@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/shared/auth.service';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { FileUpload } from 'src/app/models/file-upload.model';
+import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -8,11 +9,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  @Input() fileUpload!: FileUpload;
+  selectedFiles?: FileList;
+  currentFileUpload?: FileUpload;
+  percentage = 0;
+  uploadedImg?: any;
 
   name: string;
   portrait: string;
   email: string;
   password: string;
+  uploadUrl: string;
 
   constructor(private auth: AuthService, private router: Router) { }
 
@@ -20,7 +27,7 @@ export class SignupComponent implements OnInit {
   }
 
   signup() {
-    this.auth.register(this.name, this.portrait, this.email, this.password);
+    this.auth.register(this.name, this.portrait, this.email, this.password, this.uploadUrl);
     if (this.router.url !== '/signup') {
       this.name = '';
       this.email = '';
@@ -65,4 +72,5 @@ export class SignupComponent implements OnInit {
       passwordInput.style.border = '1px solid #000000';
     }
   }
+
 }
