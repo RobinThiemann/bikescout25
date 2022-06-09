@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { FileUpload } from 'src/app/models/file-upload.model';
 import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
@@ -9,9 +8,7 @@ import { AuthService } from 'src/app/shared/auth.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  @Input() fileUpload!: FileUpload;
   selectedFiles?: FileList;
-  currentFileUpload?: FileUpload;
   percentage = 0;
   uploadedImg?: any;
 
