@@ -22,6 +22,7 @@ import { CurrentrentComponent } from './components/currentrent/currentrent.compo
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { MapComponent } from './components/map/map.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     UserComponent,
     LendComponent,
     RentComponent,
-    CurrentrentComponent
+    CurrentrentComponent,
+    MapComponent
 
   ],
   imports: [

@@ -4,12 +4,9 @@
 
 <div class="map">
   <router-outlet></router-outlet>
-  <iframe width="100%" height="450" class="map" loading="lazy" allowfullscreen
-    referrerpolicy="no-referrer-when-downgrade"
-    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD3-2RCJ5_8u-WTe4I38O-AzrukA3YfIHo&q=DHBW-Karlsruhe">
-  </iframe>
 </div>
 <div class="wrapper">
+  <app-map></app-map>
   <button class="actions" (click)="navigateRent()">Fahrrad ausleihen</button>
   <button class="actions" (click)="navigateLend()">Fahrrad verleihen</button>
   <div id="errorText_home" class="errorText"></div>
