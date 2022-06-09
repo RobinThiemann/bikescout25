@@ -9,12 +9,26 @@ p {
     font-size: 1rem;
 }
 
+.header {
+    margin: auto;
+    background-color: aliceblue;
+    width: 35%;
+    border-radius: 30px;
+    box-shadow: 5px 5px 5px #000000;
+}
+
 .wrapper {
+    margin: auto;
     text-align: center;
     padding: 30px;
-    width: 100%;
+    width: 80%;
     height: 100%;
 }
+
+.map {
+    border: none;
+}
+
 
 .errorText {
     color: red;
@@ -25,17 +39,15 @@ p {
 .actions {
     text-align: center;
     justify-content: center;
-    background-color: #eb8613;
-    border: 1px solid #eb8613;
+    background-color: aliceblue;
+    box-shadow: 2px 2px 2px #000000;
     padding: 7px;
     margin-right: 50px;
     margin-left: 50px;
     border-radius: 5px;
-    border: none;
     font-size: medium;
 }
 
 .actions:hover {
-    background-color: #d67e0e;
-    border: 1px solid #000000;
+    background-color: #eb8613;
 }
