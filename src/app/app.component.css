@@ -78,6 +78,11 @@ p {
     margin: 15px;
     border-radius: 5px;
     border: none;
+    box-shadow: 2px 2px 2px #000000;
+}
+
+.auth:hover { 
+    background-color: rgb(189, 189, 189);
 }
 
 

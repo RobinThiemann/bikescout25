@@ -34,11 +34,14 @@ p {
     color: red;
     font-size: 1rem;
     margin: 10px;
+    position: relative;
+    top: 27rem;
 }
 
 .actions {
+    position: relative;
+    top: 26rem;
     text-align: center;
-    justify-content: center;
     background-color: aliceblue;
     box-shadow: 2px 2px 2px #000000;
     padding: 7px;
@@ -46,6 +49,7 @@ p {
     margin-left: 50px;
     border-radius: 5px;
     font-size: medium;
+    z-index: 1000;
 }
 
 .actions:hover {
