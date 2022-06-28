@@ -41,7 +41,13 @@ export class AppComponent {
         });
       }
     }
+  }
 
+  easterEgg() {
+    this.clickcount++;
+    if (this.clickcount == 25) {
+      window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    }
   }
 
 }

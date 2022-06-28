@@ -18,7 +18,7 @@ export class MapComponent implements OnInit {
     });
 
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 20,
+      maxZoom: 30,
       minZoom: 10,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
@@ -31,6 +31,8 @@ export class MapComponent implements OnInit {
     ).forEach(
       x => x.addTo(this.map)
     );
+
+
 
     tiles.addTo(this.map);
 
