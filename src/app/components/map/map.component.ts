@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { map } from 'cypress/types/bluebird';
 import * as L from 'leaflet';
 
 @Component({
@@ -6,10 +7,12 @@ import * as L from 'leaflet';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
+
 export class MapComponent implements OnInit {
+  @Output() update = new EventEmitter();
 
   private map: L.Map;
-  private centroid: L.LatLngExpression = [49.0092096, 8.4040173]; //
+  private centroid: L.LatLngExpression = [49.0092096, 8.4040173];
 
   private initMap(): void {
     this.map = L.map('map', {
@@ -21,6 +24,21 @@ export class MapComponent implements OnInit {
       maxZoom: 30,
       minZoom: 10,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    });
+
+    
+    this.map.on('click', (e) => {
+      console.log(e.latlng.lat,e.latlng.lng);
+      var coords= e.latlng.lat + ", " + e.latlng.lng;
+      
+      var popLocation= e.latlng;
+        var popup = L.popup()
+        .setLatLng(popLocation)
+        .setContent('<p>Hello world!<br />This is a nice popup.</p>')
+        .openOn(this.map);
+      
+      console.log(coords);
+      this.map.fireEvent("click", coords);
     });
 
     // create 5 random jitteries and add them to map

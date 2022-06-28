@@ -16,4 +16,9 @@
 
 #map {
     height: 100%;
+    width: 100%;
+}
+
+.leaflet-popup-content-wrapper {
+    min-width: 350px;
 }
