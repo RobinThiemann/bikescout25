@@ -1,1 +1,18 @@
-<p>lend works!</p>
+<form class="signup">
+    <h1>Fahrrad verleihen</h1>
+    <div class="general-signup">
+        <div class="input">
+            <p id="bikeName">Bezeichung des Fahrrads</p>
+            <input id="bikeName_input" type="text" name="email" [(ngModel)]="bikeName" (focusout)="changeBike($event)">
+        </div>
+        <div class="input">
+            <p id="bikePortrait">Kurzbeschreibung</p>
+            <textarea id="bikePortrait_input" class="portrait" type="text" name="portrait" [(ngModel)]="portrait"
+                (focusout)="changePortrait($event)"></textarea>
+        </div>
+        <div id="bikeErrorText" class="errorText">Bitte füllen Sie alle Felder aus</div>
+        <div class="input">
+            <input type="submit" value="Verleihen" (click)="lend()">
+        </div>
+    </div>
+</form>

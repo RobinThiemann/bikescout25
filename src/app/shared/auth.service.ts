@@ -40,13 +40,12 @@ export class AuthService {
     })
   }
 
-  register(name: string, portrait: string, email: string, password: string, uploadUrl: string) {
+  register(name: string, portrait: string, email: string, password: string) {
 
     this.userdata = <JSON><unknown>{
       name: name,
       portrait: portrait,
-      email: email,
-      uploadUrl: uploadUrl
+      email: email
     }
     let email_id = email;
     if (typeof email !== 'undefined') {
@@ -64,7 +63,6 @@ export class AuthService {
           warning.style.display = 'block';
         }
       }
-      return;
     }
     if (typeof portrait === 'undefined' || portrait === '') {
       const errorText = document.getElementById('portrait');
@@ -77,7 +75,6 @@ export class AuthService {
           warning.style.display = 'block';
         }
       }
-      return;
     }
     if (typeof email === 'undefined' || email === '') {
       const errorText = document.getElementById('email');
@@ -90,7 +87,6 @@ export class AuthService {
           warning.style.display = 'block';
         }
       }
-      return;
     }
     if (typeof password === 'undefined' || password === '') {
       const errorText = document.getElementById('password');
@@ -103,12 +99,15 @@ export class AuthService {
           warning.style.display = 'block';
         }
       }
+    }
+
+    if (name == '' || portrait == '' || email == '' || password == '') {
       return;
     }
 
     return this.fireauth.createUserWithEmailAndPassword(email, password).then(() => {
       this.db.object(email_id).set(this.userdata);
-      this.router.navigate(['/']);
+      this.router.navigate(['/login']);
       const errortext = document.getElementById('errorText_home');
       if (errortext !== null) {
         errortext.innerHTML = '';
