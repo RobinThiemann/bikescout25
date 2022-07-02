@@ -1,0 +1,43 @@
+.signup {
+    margin: auto;
+    background-color: aliceblue;
+    width: 15%;
+    padding: 20px 50px 50px 50px;
+    border-radius: 30px;
+    box-shadow: 5px 5px 5px #000000;
+}
+
+.general-signup {
+    text-align: center;
+    display: grid;
+    /*grid-template-columns: 1fr 1fr;*/
+}
+
+.input {
+    padding: 1rem;
+}
+
+.portrait {
+    padding: 1rem;
+    height: 200px;
+    text-align: left;
+    resize: none;
+}
+
+.errorText {
+    color: red;
+    font-size: 0.8rem;
+    display: none;
+}
+
+h1 {
+    text-align: center;
+}
+
+.b1 {
+    background-color: '#fffff';
+    padding: 7px;
+    margin: 15px;
+    border-radius: 5px;
+    border: none;
+}
