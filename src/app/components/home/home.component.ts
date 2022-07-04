@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
       if (errortext !== null && localStorage.getItem('token') !== 'true') {
         errortext.innerHTML = 'Bitte logge dich ein, um diese Funktion zu nutzen.';
       } else if (errortext !== null && (localStorage.getItem('lat') === '' || localStorage.getItem('lng') === '')) {
-        errortext.innerHTML = 'Wählen Sie einen Punkt auf der Karte aus';
+        errortext.innerHTML = 'Wählen Sie einen Punkt auf der Karte aus.';
       }
     }
   }

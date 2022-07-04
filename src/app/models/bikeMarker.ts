@@ -1,4 +1,5 @@
 export interface BikeMarker {
+    id?: string;
     Email?: string;
     Lat?: number;
     Lng?: number;

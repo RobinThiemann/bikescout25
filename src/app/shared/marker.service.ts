@@ -12,6 +12,9 @@ export class MarkerService {
   markerCollection: AngularFirestoreCollection<BikeMarker>;
   bikeMarkers: Observable<any[]>;
 
+
+  itemDoc: AngularFirestoreDocument<BikeMarker>;
+
   constructor(public afs: AngularFirestore, private router: Router) {
     /*this.bikeMarkers = this.afs.collection('Marker').valueChanges();*/
 
@@ -20,6 +23,7 @@ export class MarkerService {
     this.bikeMarkers = this.afs.collection('Marker').snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as BikeMarker
+        data.id = a.payload.doc.id;
         return data;
       });
     }));

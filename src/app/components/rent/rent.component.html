@@ -1,1 +1,9 @@
-<p>rent works!</p>
+<div *ngIf="showItems()">
+    <ul *ngFor="let marker of markers" class="collection">
+        <div class="collection-head">
+            <span class="collection-title">{{marker.bikename}}</span>
+            <br>
+            <span class="collection-subtitle">{{marker.portrait}}</span>
+        </div>
+    </ul>
+</div>
