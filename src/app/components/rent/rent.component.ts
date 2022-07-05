@@ -11,6 +11,8 @@ import { BikeMarker } from 'src/app/models/bikeMarker';
 export class RentComponent implements OnInit {
   markers: BikeMarker[];
 
+  showButton: boolean = false;
+
   constructor(private ms: MarkerService, private router: Router) { }
 
   ngOnInit(): void {
@@ -38,6 +40,27 @@ export class RentComponent implements OnInit {
       return true;
     } else {
       return false;
+    }
+  }
+
+  activateButton() {
+    this.showButton = true;
+  }
+
+  getDistanceString(bmLat: number, bmLng: number) {
+    if (localStorage.getItem('lat') !== null && localStorage.getItem('lng') !== null && typeof bmLat !== 'undefined' && typeof bmLng !== 'undefined') {
+      const lat = Number(localStorage.getItem('lat'));
+      const lng = Number(localStorage.getItem('lng'));
+      const latDist = 111.13 * (bmLat - lat);
+      const lngDist = 71.44 * (bmLng - lng);
+      const dist = Number(Math.sqrt(Math.pow(latDist, 2) + Math.pow(lngDist, 2)).toFixed(2));
+      if (dist >= 1) {
+        return dist + 'km entfernt';
+      } else {
+        return Math.round(dist * 1000) + 'm entfernt';
+      }
+    } else {
+      return '';
     }
   }
 

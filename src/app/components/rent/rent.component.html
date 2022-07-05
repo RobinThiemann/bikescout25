@@ -1,9 +1,12 @@
 <div *ngIf="showItems()">
     <ul *ngFor="let marker of markers" class="collection">
-        <div class="collection-head">
-            <span class="collection-title">{{marker.bikename}}</span>
-            <br>
-            <span class="collection-subtitle">{{marker.portrait}}</span>
+        <div class="collection-head" (click)="activateButton()">
+            <div class="collection-title">{{marker.bikename}}</div>
+            <div class="collection-subtitle">{{marker.portrait}}</div>
+            <div class="collection-subtitle">{{getDistanceString(marker.Lat!, marker.Lng!)}}</div>
         </div>
     </ul>
+    <div class="button-container" *ngIf="showButton">
+        <button class="button">Fahrrad leihen</button>
+    </div>
 </div>

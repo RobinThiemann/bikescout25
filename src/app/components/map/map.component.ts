@@ -35,13 +35,6 @@ export class MapComponent implements OnInit {
 
     this.map.on('click', (e) => {
       if (localStorage.getItem('email') !== null) {
-        /*var newMarker: BikeMarker = {
-          Email: localStorage.getItem('email')!,
-          Lat: (e as L.LeafletMouseEvent).latlng.lat,
-          Lng: (e as L.LeafletMouseEvent).latlng.lng,
-          bikename: "BITTE KLAPPTS"
-        };
-        this.ms.addMarker(newMarker);*/
         localStorage.setItem('lat', (e as L.LeafletMouseEvent).latlng.lat.toString());
         localStorage.setItem('lng', (e as L.LeafletMouseEvent).latlng.lng.toString());
       }
