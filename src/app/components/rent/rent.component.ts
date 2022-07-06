@@ -43,10 +43,6 @@ export class RentComponent implements OnInit {
     }
   }
 
-  activateButton() {
-    this.showButton = true;
-  }
-
   getDistanceString(bmLat: number, bmLng: number) {
     if (localStorage.getItem('lat') !== null && localStorage.getItem('lng') !== null && typeof bmLat !== 'undefined' && typeof bmLng !== 'undefined') {
       const lat = Number(localStorage.getItem('lat'));
@@ -64,4 +60,10 @@ export class RentComponent implements OnInit {
     }
   }
 
+  deleteMarker(event: any, marker: BikeMarker) {
+    this.ms.deleteMarker(marker);
+    this.ms.addRent(marker);
+  }
+
 }
+

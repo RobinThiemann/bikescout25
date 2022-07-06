@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class MarkerService {
   markerCollection: AngularFirestoreCollection<BikeMarker>;
   bikeMarkers: Observable<any[]>;
+  rentMarkers: Observable<any[]>;
+  lendMarkers: Observable<any[]>;
 
 
   itemDoc: AngularFirestoreDocument<BikeMarker>;
@@ -34,8 +36,54 @@ export class MarkerService {
   }
 
   addMarker(marker: BikeMarker) {
-    console.log(marker);
     this.markerCollection.add(marker);
     this.router.navigate(['/']);
+  }
+
+  deleteMarker(marker: BikeMarker) {
+    this.itemDoc = this.afs.doc(`Marker/${marker.id}`);
+    this.itemDoc.delete();
+  }
+
+  addRent(marker: BikeMarker) {
+    if (localStorage.getItem('email') !== null) {
+      var collectionString = localStorage.getItem('email') + 'Rent';
+      this.afs.collection(collectionString).add(marker);
+    }
+  }
+
+  addLend(marker: BikeMarker) {
+    if (localStorage.getItem('email') !== null) {
+      var collectionString = localStorage.getItem('email') + 'Lend';
+      this.afs.collection(collectionString).add(marker);
+    }
+  }
+
+  getRentMarkers() {
+    if (localStorage.getItem('email') !== null) {
+      var collectionString = localStorage.getItem('email') + 'Rent';
+      this.rentMarkers = this.afs.collection(collectionString).snapshotChanges().pipe(map(changes => {
+        return changes.map(a => {
+          const data = a.payload.doc.data() as BikeMarker
+          data.id = a.payload.doc.id;
+          return data;
+        });
+      }));
+    }
+    return this.rentMarkers;
+  }
+
+  getLendMarkers() {
+    if (localStorage.getItem('email') !== null) {
+      var collectionString = localStorage.getItem('email') + 'Lend';
+      this.lendMarkers = this.afs.collection(collectionString).snapshotChanges().pipe(map(changes => {
+        return changes.map(a => {
+          const data = a.payload.doc.data() as BikeMarker
+          data.id = a.payload.doc.id;
+          return data;
+        });
+      }));
+    }
+    return this.lendMarkers;
   }
 }

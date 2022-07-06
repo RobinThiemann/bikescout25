@@ -60,6 +60,7 @@ export class LendComponent implements OnInit {
       bikename: this.bikeName,
       portrait: this.portrait
     };
+    this.ms.addLend(newMarker);
     this.ms.addMarker(newMarker);
   }
 
