@@ -7,7 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "e2e": "cypress open"
+    "e2e": "cypress open",
+    "ci:start-server": "angular-http-server --path ./dist/bikescout25 -p 4200",
+    "cy:run": "cypress run",
+    "ci:cy-run": "start-server-and-test ci:start-server http://localhost:4200 e2e"
   },
   "private": true,
   "dependencies": {
@@ -35,6 +38,7 @@
     "@types/jasmine": "~3.10.0",
     "@types/leaflet": "^1.7.11",
     "@types/node": "^12.11.1",
+    "angular-http-server": "^1.10.0",
     "chance": "^1.1.8",
     "cypress": "^10.0.3",
     "jasmine-core": "~4.0.0",
@@ -43,6 +47,7 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "start-server-and-test": "^1.14.0",
     "typescript": "~4.6.2"
   }
 }
