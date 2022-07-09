@@ -1,0 +1,20 @@
+.container {
+    margin: auto;
+    top: 17rem;
+    background-color: aliceblue;
+    width: 25%;
+    padding: 20px 50px 50px 50px;
+    border-radius: 30px;
+    box-shadow: 5px 5px 5px #000000;
+    text-align: center;
+}
+
+.text {
+    text-align: center;
+    font-size: medium;
+}
+
+.actions {
+    margin: 20px 10px 0px 10px;
+    width: 30%;
+}

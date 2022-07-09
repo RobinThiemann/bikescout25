@@ -1,3 +1,7 @@
+<div>
+    <h1 id="userName">{{getName()}}</h1>
+    <div id="userPortrait">{{getPortrait()}}</div>
+</div>
 <h1 class="head">Angebotene Fahrräder</h1>
 <div *ngIf="showItemsLend()">
     <ul *ngFor="let marker of lendMarkers" class="collection">

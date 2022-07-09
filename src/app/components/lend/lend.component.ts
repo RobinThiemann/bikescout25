@@ -14,6 +14,8 @@ export class LendComponent implements OnInit {
   portrait: string;
   lat: number;
   lng: number;
+  bikeColour: string;
+  bikeSize: string;
 
 
   constructor(private ms: MarkerService, private router: Router) { }
@@ -58,7 +60,9 @@ export class LendComponent implements OnInit {
       Lat: this.lat,
       Lng: this.lng,
       bikename: this.bikeName,
-      portrait: this.portrait
+      portrait: this.portrait,
+      colour: this.bikeColour,
+      size: this.bikeSize
     };
     this.ms.addLend(newMarker);
     this.ms.addMarker(newMarker);
@@ -79,6 +83,24 @@ export class LendComponent implements OnInit {
     if (portrait !== null && portraitInput !== null) {
       portrait.style.color = '#000000';
       portraitInput.style.border = '1px solid #000000';
+    }
+  }
+
+  changeColour(event: any) {
+    const Colour = document.getElementById('bikeColour');
+    const ColourInput = document.getElementById('bikeColour_input');
+    if (Colour !== null && ColourInput !== null) {
+      Colour.style.color = '#000000';
+      ColourInput.style.border = '1px solid #000000';
+    }
+  }
+
+  changeSize(event: any) {
+    const Size = document.getElementById('bikeSize');
+    const SizeInput = document.getElementById('bikeSize_input');
+    if (Size !== null && SizeInput !== null) {
+      Size.style.color = '#000000';
+      SizeInput.style.border = '1px solid #000000';
     }
   }
 

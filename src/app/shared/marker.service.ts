@@ -40,8 +40,9 @@ export class MarkerService {
     this.router.navigate(['/']);
   }
 
-  deleteMarker(marker: BikeMarker) {
-    this.itemDoc = this.afs.doc(`Marker/${marker.id}`);
+  deleteMarker(markerID: string) {
+    console.log(markerID);
+    this.itemDoc = this.afs.doc(`Marker/${markerID}`);
     this.itemDoc.delete();
   }
 
@@ -85,5 +86,23 @@ export class MarkerService {
       }));
     }
     return this.lendMarkers;
+  }
+
+  deleteLendMarker() {
+    var idString: string;
+    var data: BikeMarker;
+    if (localStorage.getItem('lendID') !== null && typeof localStorage.getItem('lendID') !== 'undefined') {
+      idString = localStorage.getItem('lendID')!;
+      this.afs.collection('Marker').doc(idString).ref.get().then((snapshot) => {
+        console.log(snapshot.data());
+        data = snapshot.data() as BikeMarker;
+        if (typeof data.Email !== 'undefined') {
+          console.log('hier');
+          this.deleteMarker(idString);
+          this.addRent(data);
+          this.router.navigate(['/']);
+        }
+      });
+    }
   }
 }

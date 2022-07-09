@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MarkerService } from 'src/app/shared/marker.service';
 import { BikeMarker } from 'src/app/models/bikeMarker';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Component({
   selector: 'app-rent',
@@ -13,7 +14,7 @@ export class RentComponent implements OnInit {
 
   showButton: boolean = false;
 
-  constructor(private ms: MarkerService, private router: Router) { }
+  constructor(private ms: MarkerService, private router: Router, private db: AngularFireDatabase) { }
 
   ngOnInit(): void {
     this.ms.getMarkers().subscribe(marker => {
@@ -60,10 +61,11 @@ export class RentComponent implements OnInit {
     }
   }
 
-  deleteMarker(event: any, marker: BikeMarker) {
-    this.ms.deleteMarker(marker);
-    this.ms.addRent(marker);
+  setLendUser(event: any, marker: BikeMarker) {
+    if (marker.Email !== null && typeof marker.Email !== 'undefined' && marker.id !== null && typeof marker.id !== 'undefined') {
+      localStorage.setItem('lendUser', marker.Email);
+      localStorage.setItem('lendID', marker.id);
+      this.router.navigate(['/lend-bike-overview']);
+    }
   }
-
 }
-

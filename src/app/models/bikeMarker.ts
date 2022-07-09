@@ -5,4 +5,6 @@ export interface BikeMarker {
     Lng?: number;
     bikename?: string;
     portrait?: string;
+    colour?: string;
+    size?: string;
 }
