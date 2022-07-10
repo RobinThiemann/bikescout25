@@ -7,7 +7,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.4.2
       - name: Cypress.io
-        uses: cypress-io/github-action@v4.1.1
+        uses: cypress-io/github-action@v2.4.2
         with: 
-          start: ng serve
+          start: yarn run cypress open
       
