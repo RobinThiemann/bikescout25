@@ -9,5 +9,5 @@ jobs:
       - name: Cypress.io
         uses: cypress-io/github-action@v4.1.1
         with: 
-          start: npm start
+          start: ng serve
       
