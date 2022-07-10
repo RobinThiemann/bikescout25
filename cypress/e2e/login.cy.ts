@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 // Entsprechendes Skript ausführen (package.json - hover + ausführen)
 
+=======
+>>>>>>> 38a1c4d25837df604a88c7d924943c90d02da159
 describe('Login', () => {
   it('passes', () => {
     cy.visit('http://localhost:4200/')

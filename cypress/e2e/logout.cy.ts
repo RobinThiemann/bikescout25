@@ -21,7 +21,11 @@ describe('Logout', () => {
     cy.get('.img').click();
   })
 
+<<<<<<< HEAD
   // Prüfung ob Logout erfolgreich
+=======
+  // Prüfung ob Logout erfolgreich !!!WORK IN PROGRESS!!!
+>>>>>>> 38a1c4d25837df604a88c7d924943c90d02da159
     it('click', () => {
       cy.contains('Logout').click()
       cy.get('.wrapper > :nth-child(3)').click();
