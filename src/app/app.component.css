@@ -66,9 +66,6 @@ p {
     margin: 10px;
 }
 
-.icon:hover {
-    background-color: #DEDEDE;
-}
 
 
 
@@ -81,7 +78,7 @@ p {
     box-shadow: 2px 2px 2px #000000;
 }
 
-.auth:hover { 
+.auth:hover {
     background-color: rgb(189, 189, 189);
 }
 

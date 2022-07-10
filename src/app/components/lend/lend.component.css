@@ -1,4 +1,4 @@
-.signup {
+.lend {
     margin: auto;
     background-color: aliceblue;
     width: 15%;
@@ -7,7 +7,7 @@
     box-shadow: 5px 5px 5px #000000;
 }
 
-.general-signup {
+.general-lend {
     text-align: center;
     display: grid;
     /*grid-template-columns: 1fr 1fr;*/

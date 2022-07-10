@@ -1,0 +1,23 @@
+.head {}
+
+.collection-head {
+    background-color: aliceblue;
+    width: 15%;
+    padding: 10px 30px 10px 30px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #000000;
+}
+
+.collection-head:hover {
+    background-color: rgb(206, 206, 206);
+}
+
+.collection-title {
+    font-size: medium;
+    font-weight: bold;
+}
+
+.collection-subtitle {
+    font-size: small;
+    width: 100%;
+}

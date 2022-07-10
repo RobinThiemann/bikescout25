@@ -26,6 +26,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { MapComponent } from './components/map/map.component';
 
 import { MarkerService } from './shared/marker.service';
+import { LendBikeOverviewComponent } from './components/lend-bike-overview/lend-bike-overview.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { MarkerService } from './shared/marker.service';
     LendComponent,
     RentComponent,
     CurrentrentComponent,
-    MapComponent
+    MapComponent,
+    LendBikeOverviewComponent
 
   ],
   imports: [

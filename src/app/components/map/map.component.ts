@@ -21,7 +21,6 @@ export class MapComponent implements OnInit {
 
 
   private initMap(): void {
-    console.log(this.markers);
     this.map = L.map('map', {
       center: this.centroid,
       zoom: 16
@@ -36,20 +35,13 @@ export class MapComponent implements OnInit {
 
     this.map.on('click', (e) => {
       if (localStorage.getItem('email') !== null) {
-        /*var newMarker: BikeMarker = {
-          Email: localStorage.getItem('email')!,
-          Lat: (e as L.LeafletMouseEvent).latlng.lat,
-          Lng: (e as L.LeafletMouseEvent).latlng.lng,
-          bikename: "BITTE KLAPPTS"
-        };
-        this.ms.addMarker(newMarker);*/
         localStorage.setItem('lat', (e as L.LeafletMouseEvent).latlng.lat.toString());
         localStorage.setItem('lng', (e as L.LeafletMouseEvent).latlng.lng.toString());
       }
       var popLocation = (e as L.LeafletMouseEvent).latlng;
       var popup = L.popup()
         .setLatLng(popLocation)
-        .setContent('<p>Möchten Sie ein Fahrrad verleihen?</p>')
+        .setContent('<p>Möchten Sie ein Fahrrad ausleihen oder verleihen?</p>')
         .openOn(this.map);
     });
 
@@ -57,19 +49,6 @@ export class MapComponent implements OnInit {
       let x = [this.markers[i].Lat, this.markers[i].Lng];
       let y = L.marker(x as L.LatLngExpression).addTo(this.map);
     }
-
-
-    // create 5 random jitteries and add them to map
-    /*const jittery = Array(this.markers.length).fill(this.centroid).map(
-      x => [49.010132463527846, 8.406392519713767]
-    ).map(
-      x => L.marker(x as L.LatLngExpression)
-    ).forEach(
-      x => x.addTo(this.map)
-    );*/
-
-
-
     tiles.addTo(this.map);
 
   }
@@ -79,7 +58,6 @@ export class MapComponent implements OnInit {
   ngOnInit(): void {
     this.ms.getMarkers().subscribe(marker => {
       this.markers = marker;
-      console.log(this.markers.length);
       this.initMap();
     });
   }
