@@ -40,7 +40,7 @@
     "@types/node": "^12.11.1",
     "angular-http-server": "^1.10.0",
     "chance": "^1.1.8",
-    "cypress": "^10.0.3",
+    "cypress": "^10.3.0",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",

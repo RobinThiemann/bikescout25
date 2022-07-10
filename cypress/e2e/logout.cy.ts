@@ -21,7 +21,7 @@ describe('Logout', () => {
     cy.get('.img').click();
   })
 
-  // Prüfung ob Logout erfolgreich !!!WORK IN PROGRESS!!!
+  // Prüfung ob Logout erfolgreich
     it('click', () => {
       cy.contains('Logout').click()
       cy.get('.wrapper > :nth-child(3)').click();

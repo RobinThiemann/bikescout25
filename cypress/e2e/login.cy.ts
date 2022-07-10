@@ -1,3 +1,5 @@
+// Entsprechendes Skript ausführen (package.json - hover + ausführen)
+
 describe('Login', () => {
   it('passes', () => {
     cy.visit('http://localhost:4200/')
