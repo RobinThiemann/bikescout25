@@ -1,1 +1,28 @@
-<p>lend works!</p>
+<form class="lend">
+    <h1>Fahrrad verleihen</h1>
+    <div class="general-lend">
+        <div class="input">
+            <p id="bikeName">Bezeichung des Fahrrads</p>
+            <input id="bikeName_input" type="text" name="email" [(ngModel)]="bikeName" (focusout)="changeBike($event)">
+        </div>
+        <div class="input">
+            <p id="bikePortrait">Kurzbeschreibung</p>
+            <textarea id="bikePortrait_input" class="portrait" type="text" name="portrait" [(ngModel)]="portrait"
+                (focusout)="changePortrait($event)"></textarea>
+        </div>
+        <div class="input">
+            <p id="bikeColour">Farbe</p>
+            <input id="bikeColour_input" type="text" name="bikeColour" [(ngModel)]="bikeColour"
+                (focusout)="changeColour($event)">
+        </div>
+        <div class="input">
+            <p id="bikeSize">Rahmengröße</p>
+            <input id="bikeSize_input" type="text" name="bikeSize" [(ngModel)]="bikeSize"
+                (focusout)="changeSize($event)">
+        </div>
+        <div id="bikeErrorText" class="errorText">Bitte füllen Sie alle Felder aus</div>
+        <div class="input">
+            <input type="submit" value="Verleihen" (click)="lend()">
+        </div>
+    </div>
+</form>

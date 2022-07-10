@@ -8,15 +8,10 @@ import { AuthService } from 'src/app/shared/auth.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  selectedFiles?: FileList;
-  percentage = 0;
-  uploadedImg?: any;
-
   name: string;
   portrait: string;
   email: string;
   password: string;
-  uploadUrl: string;
 
   constructor(private auth: AuthService, private router: Router) { }
 
@@ -24,7 +19,7 @@ export class SignupComponent implements OnInit {
   }
 
   signup() {
-    this.auth.register(this.name, this.portrait, this.email, this.password, this.uploadUrl);
+    this.auth.register(this.name, this.portrait, this.email, this.password);
     if (this.router.url !== '/signup') {
       this.name = '';
       this.email = '';

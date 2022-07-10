@@ -12,9 +12,8 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private db: AngularFireDatabase, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    if (localStorage.getItem('token') !== 'true') {
-      this.router.navigate(['/']);
-    }
+    localStorage.setItem('lat', '');
+    localStorage.setItem('lng', '');
     this.changeName();
   }
 
@@ -34,23 +33,27 @@ export class HomeComponent implements OnInit {
   }
 
   navigateRent() {
-    if (localStorage.getItem('token') === 'true') {
+    if (localStorage.getItem('token') === 'true' && localStorage.getItem('lat') !== '' && localStorage.getItem('lng') !== '') {
       this.router.navigate(['/rent'], { relativeTo: this.route });
     } else {
       const errortext = document.getElementById('errorText_home');
-      if (errortext !== null) {
+      if (errortext !== null && localStorage.getItem('token') !== 'true') {
         errortext.innerHTML = 'Bitte logge dich ein, um diese Funktion zu nutzen.';
+      } else if (errortext !== null && (localStorage.getItem('lat') === '' || localStorage.getItem('lng') === '')) {
+        errortext.innerHTML = 'Wählen Sie einen Punkt auf der Karte aus.';
       }
     }
   }
 
   navigateLend() {
-    if (localStorage.getItem('token') === 'true') {
+    if (localStorage.getItem('token') === 'true' && localStorage.getItem('lat') !== '' && localStorage.getItem('lng') !== '') {
       this.router.navigate(['/lend'], { relativeTo: this.route });
     } else {
       const errortext = document.getElementById('errorText_home');
-      if (errortext !== null) {
-        errortext.style.display = 'block';
+      if (errortext !== null && localStorage.getItem('token') !== 'true') {
+        errortext.innerHTML = 'Bitte logge dich ein, um diese Funktion zu nutzen.';
+      } else if (errortext !== null && (localStorage.getItem('lat') === '' || localStorage.getItem('lng') === '')) {
+        errortext.innerHTML = 'Wählen Sie einen Punkt auf der Karte aus.';
       }
     }
   }

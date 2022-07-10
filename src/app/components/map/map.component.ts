@@ -1,6 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { map } from 'cypress/types/bluebird';
 import * as L from 'leaflet';
+import { BikeMarker } from 'src/app/models/bikeMarker';
+
+import { MarkerService } from '../../shared/marker.service';
+
+
 
 @Component({
   selector: 'app-map',
@@ -9,10 +13,12 @@ import * as L from 'leaflet';
 })
 
 export class MapComponent implements OnInit {
+  markers: BikeMarker[];
   @Output() update = new EventEmitter();
 
   private map: L.Map;
   private centroid: L.LatLngExpression = [49.0092096, 8.4040173];
+
 
   private initMap(): void {
     this.map = L.map('map', {
@@ -26,40 +32,33 @@ export class MapComponent implements OnInit {
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     });
 
-    
+
     this.map.on('click', (e) => {
-      console.log(e.latlng.lat,e.latlng.lng);
-      var coords= e.latlng.lat + ", " + e.latlng.lng;
-      
-      var popLocation= e.latlng;
-        var popup = L.popup()
+      if (localStorage.getItem('email') !== null) {
+        localStorage.setItem('lat', (e as L.LeafletMouseEvent).latlng.lat.toString());
+        localStorage.setItem('lng', (e as L.LeafletMouseEvent).latlng.lng.toString());
+      }
+      var popLocation = (e as L.LeafletMouseEvent).latlng;
+      var popup = L.popup()
         .setLatLng(popLocation)
-        .setContent('<p>Hello world!<br />This is a nice popup.</p>')
+        .setContent('<p>Möchten Sie ein Fahrrad ausleihen oder verleihen?</p>')
         .openOn(this.map);
-      
-      console.log(coords);
-      this.map.fireEvent("click", coords);
     });
 
-    // create 5 random jitteries and add them to map
-    const jittery = Array(100).fill(this.centroid).map(
-      x => [x[0] + (Math.random() - 0.5) / 100, x[1] + (Math.random() - .5) / 10]
-    ).map(
-      x => L.marker(x as L.LatLngExpression)
-    ).forEach(
-      x => x.addTo(this.map)
-    );
-
-
-
+    for (let i = 0; i < this.markers.length; i++) {
+      let x = [this.markers[i].Lat, this.markers[i].Lng];
+      let y = L.marker(x as L.LatLngExpression).addTo(this.map);
+    }
     tiles.addTo(this.map);
 
   }
 
-  constructor() { }
+  constructor(private ms: MarkerService) { }
 
   ngOnInit(): void {
-    this.initMap();
+    this.ms.getMarkers().subscribe(marker => {
+      this.markers = marker;
+      this.initMap();
+    });
   }
-
 }

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore/';
 import { environment } from 'src/environments/environment';
 import { LoginComponent } from './components/login/login.component';
 
@@ -24,6 +25,9 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { MapComponent } from './components/map/map.component';
 
+import { MarkerService } from './shared/marker.service';
+import { LendBikeOverviewComponent } from './components/lend-bike-overview/lend-bike-overview.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +39,8 @@ import { MapComponent } from './components/map/map.component';
     LendComponent,
     RentComponent,
     CurrentrentComponent,
-    MapComponent
+    MapComponent,
+    LendBikeOverviewComponent
 
   ],
   imports: [
@@ -49,9 +54,10 @@ import { MapComponent } from './components/map/map.component';
     provideDatabase(() => getDatabase()),
     HttpClientModule,
     AngularFireStorageModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFirestoreModule
   ],
-  providers: [],
+  providers: [MarkerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
