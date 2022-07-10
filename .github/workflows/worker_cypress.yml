@@ -1,11 +1,13 @@
-name: Cypress Tests with Install Job and UI Chrome Job
+name: Cypress Tests
 
 on: [push]
 
 jobs:
   install:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node12.18.3-chrome87-ff82
+    container: 
+      image: cypress/browsers:node12.18.3-chrome87-ff82
+      options: --user 1001
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -13,10 +15,15 @@ jobs:
       - name: Cypress install
         uses: cypress-io/github-action@v4
         with:
-          # Disable running of tests within install job
           runTests: false
-          build: yarn build
-
+      - run: yarn cypress info
+      - run: node --version
+      - run: node -p 'os.cpus()'
+      - run: yarn types
+      - run: yarn lint
+      - run: yarn test:unit:ci
+      - run: yarn build:ci
+      
       - name: Save build folder
         uses: actions/upload-artifact@v2
         with:
@@ -25,8 +32,11 @@ jobs:
           path: build
 
   ui-chrome-tests:
+    timeout-minutes: 15
     runs-on: ubuntu-latest
-    container: cypress/browsers:node12.18.3-chrome87-ff82
+    container: 
+      image: cypress/browsers:node12.18.3-chrome87-ff82
+      options: --user 1001
     needs: install
     strategy:
       fail-fast: false
@@ -35,10 +45,10 @@ jobs:
         containers: [1, 2, 3, 4, 5]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Download the build folders
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: build
           path: build
