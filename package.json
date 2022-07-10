@@ -10,7 +10,8 @@
     "e2e": "cypress open",
     "ci:start-server": "angular-http-server --path ./dist/bikescout25 -p 4200",
     "cy:run": "cypress run",
-    "ci:cy-run": "start-server-and-test ci:start-server http://localhost:4200 e2e"
+    "ci:cy-run": "start-server-and-test ci:start-server http://localhost:4200 e2e",
+    "c:cache": "cypress cache clear"
   },
   "private": true,
   "dependencies": {
