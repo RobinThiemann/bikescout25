@@ -1,57 +1,131 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 h1 {
-    text-align: center;
-    font-size: 5rem;
-    color: #eb8613;
+  text-align: center;
+  font-size: 3rem;
+  color: #eb8613;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #eb8613;
 }
 
 p {
-    text-align: center;
-    font-size: 1rem;
+  text-align: center;
+  font-size: 1rem;
 }
 
 .header {
-    margin: auto;
-    background-color: aliceblue;
-    width: 35%;
-    border-radius: 30px;
-    box-shadow: 5px 5px 5px #000000;
+  margin: auto;
+  background-color: white;
+  width: 35%;
+  border-radius: 30px;
+  box-shadow: 5px 5px 5px #000000;
 }
 
 .wrapper {
-    margin: auto;
-    text-align: center;
-    padding: 30px;
-    width: 80%;
-    height: 100%;
+  margin: auto;
+  text-align: center;
+  padding: 30px;
+  width: 80%;
+  height: 100%;
 }
 
 .map {
-    border: none;
+  border: none;
 }
 
-
 .errorText {
-    color: red;
-    font-size: 1rem;
-    margin: 10px;
-    position: relative;
-    top: 27rem;
+  color: rgba(218, 245, 209, 255);
+  font-size: 1rem;
+  margin: 10px;
+  position: relative;
 }
 
 .actions {
-    position: relative;
-    top: 26rem;
-    text-align: center;
-    background-color: aliceblue;
-    box-shadow: 2px 2px 2px #000000;
-    padding: 7px;
-    margin-right: 50px;
-    margin-left: 50px;
-    border-radius: 5px;
-    font-size: medium;
-    z-index: 1000;
+  position: relative;
+  top: 25rem;
+  margin-bottom: 25em;
+  text-align: center;
+  background-color: white;
+  box-shadow: 2px 2px 2px #000000;
+  padding: 7px;
+  margin-right: 50px;
+  margin-left: 50px;
+  border-radius: 5px;
+  font-size: medium;
+  z-index: 1000;
 }
 
 .actions:hover {
-    background-color: #eb8613;
+  background-color: #eb8613;
+}
+
+.container {
+  display: grid;
+  margin-bottom: 8em;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px 15px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "topleft topright"
+    "bottomleft bottomright";
+}
+
+.topleft {
+  grid-area: topleft;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background: white;
+  padding: 5px;
+}
+
+.topright {
+  grid-area: topright;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background: white;
+  padding: 5px;
+}
+
+.bottomright {
+  grid-area: bottomright;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background: white;
+  padding: 5px;
+}
+
+.bottomleft {
+  grid-area: bottomleft;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background: white;
+  padding: 5px;
+}
+
+html,
+body,
+.container {
+  height: 100%;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #eb8613;
+  color: white;
+  text-align: center;
 }

@@ -1,8 +1,12 @@
 <div>
     <h1 id="userName">{{getName()}}</h1>
-    <div id="userPortrait">{{getPortrait()}}</div>
+    <p> Ihr öffentliches Nutzerprofil:  </p>
+    <div id="userPortrait">
+      {{getPortrait()}}
+    </div>
 </div>
 <h1 class="head">Angebotene Fahrräder</h1>
+<p> Hier sind die von Ihnen zur Leihe angebotenen Fahrräder aufgelistet. </p>
 <div *ngIf="showItemsLend()">
     <ul *ngFor="let marker of lendMarkers" class="collection">
         <div class="collection-head">
@@ -12,6 +16,7 @@
     </ul>
 </div>
 <h1 class="head">Ausgeliehene Fahrräder</h1>
+<p> Hier sind die von Ihnen gebuchten Fahrräder aufgelistet. </p>
 <div *ngIf="showItemsRent()">
     <ul *ngFor="let marker of rentMarkers" class="collection">
         <div class="collection-head">
