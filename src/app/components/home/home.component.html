@@ -1,13 +1,72 @@
 <header class="header">
-  <h1>Bikescout25</h1>
+  <h1 style="margin: 30px">Bikescout25</h1>
+  <p style="padding-bottom: 10px"> <em> "Mobilität einfach gemacht." </em> <br> <br> Jetzt <b> NEU </b> im Raum
+    Karlsruhe testen! </p>
 </header>
 
 <div class="map">
   <router-outlet></router-outlet>
 </div>
+
 <div class="wrapper">
   <app-map></app-map>
   <button class="actions" (click)="navigateRent()">Fahrrad ausleihen</button>
   <button class="actions" (click)="navigateLend()">Fahrrad verleihen</button>
-  <div id="errorText_home" class="errorText"></div>
+  <div id="errorText_home" class="errorText">Bitte logge dich ein, um diese Funktion zu nutzen.</div>
+</div>
+
+<div class="container">
+  <div class="topleft">
+    <h2> Unsere Mission </h2>
+    <p>
+      Egal ob Sie ein Citybike, Touren, Trecking, Mountain -oder E-bike mieten möchten: wir von Bikescout25 haben das
+      passende Rad.
+      Ob mit der Famile oder Freunden oder mit Ihrem Unternehmen einen Betriebsausflug planen. Wir möchten, dass Sie
+      Karlsruhe so unkompliziert wie möglich mit dem Fahrrad entdecken können.
+      Dafür bieten wir mit unserem einfachen Verleihmodell verschiedene Räder für Groß und Klein an, die von anderen
+      Nutzern zur Verfügung gestellt werden. <br> <br>
+      Abbonieren Sie gerne unseren <b> Newsletter </b> , um nichts über den kommenden Start zu verpassen!
+    </p>
+  </div>
+  <div class="topright">
+    <h2> Standorte </h2>
+    <p>
+      Zum baldigen Start von Bikescout25 stehen Ihnen zahlreiche Fahrräder für den Verleih im <b> Raum Karlsruhe </b>
+      zur Verfügung.
+      <br> In Zukunft planen wir unser Angebot auszuweiten und auch in anderen Städten anzubieten.
+      <br> <br> In Planung für die Erweiterung unseres Angebots sind die Städte: Hamburg, Berlin, Köln und Stuttgart.
+    </p>
+  </div>
+  <div class="bottomright">
+    <h2> News </h2>
+    <p>
+      Bikescout25 befindet sich zum gegenwärtigen Zeitpunkt noch in der Testphase.
+      <br> Wir freuen uns über jegliches Feedback und über Helfer, die uns bei der Weiterentwicklung unterstützen.
+      <br> <br> Melden Sie sich bei interesse gerne unter: <b> support@bikescout25.de </b>
+
+      <br> <br> Das nächste Event zur Präsentation zum Stand der Testphase findet am <b> 15.07.2022 um 17 Uhr </b>
+      statt.
+      <br> Nehmen Sie gerne unter www.bikescout25.de/live teil und erfahren Sie alles über zukünftige Features.
+    </p>
+  </div>
+  <div class="bottomleft">
+    <h2> So funktioniert Bikescout25 </h2>
+    <p>
+      Bikescout25 soll so einfach gestaltet sein wie nur möglich, sodass jung und alt bequem zugreifen können um
+      Karlsruhe auf dem Fahrrad zu erkunden.
+      Sie möchten ein Fahrrad ausleihen? Das ist in 4 einfachen Schritten möglich.
+      <br> <br> 1. Legen Sie ein Nutzerkonto an, indem Sie sich auf unserer Webseite registrieren.
+      <br> <br> 2. Wählen Sie auf der Karte das gewünschte Fahrrad aus und betätigen Sie den Knopf "Fahrrad ausleihen".
+      <br> <br> 3. Wählen Sie das nächstgelegene Fahrrad in der Übersicht und betätigen sie die Leihe.
+      <br> <br> 4. Prüfen Sie Ihre Bestellung im Kundenkonto und machen Sie sich bereit für Ihre fahrt!
+    </p>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Bikescout25 - Jetzt zum Newsletter anmelden! <br>
+  <form style="margin-bottom: 15px">
+    <input id="email_newsletter" type="email" name="nf_email" placeholder="Ihre E-Mail-Adresse" maxlength="50">
+    <button type="submit"><span>Anmelden</span></button>
+  </form>
 </div>

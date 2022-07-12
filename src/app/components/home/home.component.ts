@@ -38,9 +38,10 @@ export class HomeComponent implements OnInit {
     } else {
       const errortext = document.getElementById('errorText_home');
       if (errortext !== null && localStorage.getItem('token') !== 'true') {
-        errortext.innerHTML = 'Bitte logge dich ein, um diese Funktion zu nutzen.';
+        errortext.style.color = 'red';
       } else if (errortext !== null && (localStorage.getItem('lat') === '' || localStorage.getItem('lng') === '')) {
         errortext.innerHTML = 'Wählen Sie einen Punkt auf der Karte aus.';
+        errortext.style.color = 'red';
       }
     }
   }
@@ -51,9 +52,10 @@ export class HomeComponent implements OnInit {
     } else {
       const errortext = document.getElementById('errorText_home');
       if (errortext !== null && localStorage.getItem('token') !== 'true') {
-        errortext.innerHTML = 'Bitte logge dich ein, um diese Funktion zu nutzen.';
+        errortext.style.color = 'red';
       } else if (errortext !== null && (localStorage.getItem('lat') === '' || localStorage.getItem('lng') === '')) {
         errortext.innerHTML = 'Wählen Sie einen Punkt auf der Karte aus.';
+        errortext.style.color = 'red';
       }
     }
   }
