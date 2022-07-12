@@ -15,11 +15,9 @@ import { HomeComponent } from './components/home/home.component';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideDatabase, getDatabase } from '@angular/fire/database';
-import { UserhomeComponent } from './components/userhome/userhome.component';
 import { UserComponent } from './components/user/user.component';
 import { LendComponent } from './components/lend/lend.component';
 import { RentComponent } from './components/rent/rent.component';
-import { CurrentrentComponent } from './components/currentrent/currentrent.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
@@ -34,11 +32,9 @@ import { LendBikeOverviewComponent } from './components/lend-bike-overview/lend-
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    UserhomeComponent,
     UserComponent,
     LendComponent,
     RentComponent,
-    CurrentrentComponent,
     MapComponent,
     LendBikeOverviewComponent
 
