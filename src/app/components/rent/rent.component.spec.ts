@@ -22,4 +22,26 @@ describe('RentComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  describe('distance testing'), () => {
+
+    let a;
+    let b;
+
+    beforeEach (() => {
+      a=4;
+      b=9;
+      
+    })
+
+  }
+  it('should calculate dist', () => {
+    //Act
+    const result = component.getDistanceString (a, b);
+
+    //Assert
+  })
+
+
 });
